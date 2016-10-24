@@ -11,7 +11,7 @@ namespace Member_Organisations.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            return View("RegisterMember");
         }
     }
 }
