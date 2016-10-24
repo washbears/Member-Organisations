@@ -13,5 +13,17 @@ namespace Member_Organisations.Controllers
         {
             return View("RegisterMember");
         }
+
+        // GET: Register Member
+        public ActionResult RegisterMember()
+        {
+            return View();
+        }
+
+        // GET: Register Organisation
+        public ActionResult RegisterOrganisation()
+        {
+            return View();
+        }
     }
 }
