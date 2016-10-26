@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Member_Organisations.Organisation>
+@{
     Layout = "~/Views/Shared/_RegisterLayout.cshtml";
     Page.Title = "Register Organisation";
 }
@@ -9,9 +10,14 @@
     <br /><br />
     <input type="submit" onclick="validateForm('registerForm')" value="Registrera" />
 </form>
-<ul>
-    @foreach (var item in Model)
-    {
-        <li>@item.OrganisationName</li>
-    }
-</ul>
+<br />
+<br />
+<br />
+<div>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Name</li>
+        }
+    </ul>
+</div>

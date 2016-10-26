@@ -12,7 +12,8 @@ namespace Member_Organisations
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using Member_Organisations;
+
     public partial class MODatabaseEntities : DbContext
     {
         public MODatabaseEntities()
@@ -25,7 +26,7 @@ namespace Member_Organisations
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Member> Members { get; set; }
-        public virtual DbSet<Organisation> Organisations { get; set; }
+        public virtual DbSet<Member> Member { get; set; }
+        public virtual DbSet<Organisation> Organisation { get; set; }
     }
 }
