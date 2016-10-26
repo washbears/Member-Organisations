@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Member_Organisations.Organisation>
+@{
     Layout = "~/Views/Shared/_RegisterLayout.cshtml";
     Page.Title = "Register Member";
 }
@@ -6,14 +7,16 @@
 <h1>Register member</h1>
 <div id="register" class="wrapper">
     <div class="content">
-        <form name="registerForm">
+        <form name="registerForm" method="post">
             Förnamn: <input type="text" name="FirstName" value="John"/> <br />
             Efternamn: <input type="text" name="LastName" value="Doe" /> <br />
             Organisation:
                 <select name="Organisation">
                     <option value="none">Choose an organisation</option>
-                    <option value="Org1">Organisation 1</option>
-                    <option value="Org2">Organisation 2</option>
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
                 </select> <br />
             Adress: <input type="text" name="Address" value="My Street 123" /> <br />
             Phone Number: <input type="text" name="PhoneNum" value="01234567" />
