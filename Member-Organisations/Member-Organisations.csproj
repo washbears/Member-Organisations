@@ -156,6 +156,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_BootstrapLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
