@@ -1,4 +1,4 @@
-﻿@model List<Member_Organisations.Organisation>
+﻿@model Member_Organisations.Models.RegisterMember
 @{
     Layout = "~/Views/Shared/_RegisterLayout.cshtml";
     Page.Title = "Register Member";
@@ -13,7 +13,7 @@
             Organisation:
                 <select name="Organisation">
                     <option value="none">Choose an organisation</option>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.orgs)
                     {
                         <option value="@item.Id">@item.Name</option>
                     }

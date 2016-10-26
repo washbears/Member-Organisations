@@ -135,6 +135,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\RegisterMember.cs" />
     <Compile Include="Organisation.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

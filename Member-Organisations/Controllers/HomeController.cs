@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Member_Organisations;
+using Member_Organisations.Models;
 
 namespace Member_Organisations.Controllers
 {
@@ -26,7 +26,9 @@ namespace Member_Organisations.Controllers
         // GET: Register Member
         public ActionResult RegisterMember()
         {
-            return View(new MODatabaseEntities().Organisations.ToList());
+            RegisterMember RegisterMemberModel = new RegisterMember(db.Organisations.ToList());
+
+            return View(RegisterMemberModel);
         }
 
         [HttpPost]
