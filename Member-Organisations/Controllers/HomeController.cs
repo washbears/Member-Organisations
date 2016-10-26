@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Member_Organisations.Models;
 
 namespace Member_Organisations.Controllers
 {
     public class HomeController : Controller
     {
+
+        MODatabaseEntities OrgName = new MODatabaseEntities();
+
         // GET: Home
         public ActionResult Index()
         {
@@ -23,7 +27,7 @@ namespace Member_Organisations.Controllers
         // GET: Register Organisation
         public ActionResult RegisterOrganisation()
         {
-            return View();
+            return View(new MODatabaseEntities().Organisations.ToList());
         }
     }
 }
