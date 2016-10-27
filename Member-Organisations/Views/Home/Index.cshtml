@@ -4,28 +4,55 @@
     Layout = "~/Views/Shared/_BootstrapLayout.cshtml";
 }
 
-<div text-align: center;">
+<div style="text-align: center;">
     <h1>Homepage</h1>
     <h4>Made with bootstrap!</h4>
-    <p>
-        Content will be here.
-    </p>
 
-    <div>
-        <ul>
-            @foreach (var item in Model.members)
-            {
-                <li>@item.FName</li>
-            }
+
+    <div style="padding-top: 50px;">
+        <ul class="nav nav-tabs">
+            <li class="active" style="width: 25%; margin-left: 25%;"><a data-toggle="tab" href="#menu1">Members</a></li>
+            <li style="width: 25%;"><a data-toggle="tab" href="#menu2">Organisations</a></li>
         </ul>
-        <ul>
-            @foreach (var item in Model.orgs)
-            {
-                <li>@item.Name</li>
-            }
-        </ul>
+
+        <div class="tab-content">
+            <div id="menu1" class="tab-pane fade in active">
+                <h3>Members</h3>
+                <div>
+                    <ul style="list-style: none; padding: 0;">
+                        @foreach (var item in Model.members)
+                        {
+                            <li>@item.FName</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div id="menu2" class="tab-pane fade">
+                <h3>Organisations</h3>
+                <div>
+                    <ul style="list-style: none; padding: 0;">
+                        @foreach (var item in Model.orgs)
+                        {
+                            <li>@item.Name</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div style="width: 50vw; margin: 0 auto;">
+        
+
+        
     </div>
 </div>
+
+
+
+
 
 
 
