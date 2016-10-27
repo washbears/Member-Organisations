@@ -1,4 +1,4 @@
-﻿@model Member_Organisations.Models.RegisterMember
+﻿@model Member_Organisations.ViewModels.RegisterMemberViewModel
 @{
     Layout = "~/Views/Shared/_RegisterLayout.cshtml";
     Page.Title = "Register Member";
@@ -7,24 +7,19 @@
 <h1>Register member</h1>
 <div id="register" class="wrapper">
     <div class="content">
-        <!--Registrate member and all required attributes(?)-->
-        <form name="registerForm" method="post">
-            Förnamn: <input type="text" name="FirstName" value="John" /> <br />
-            Efternamn: <input type="text" name="LastName" value="Doe" /> <br />
-            <!--Adding member to chosen Organisation-->
-            Organisation:
-            <select name="Organisation">
-                <option value="none">Choose an organisation</option>
-                @foreach (var item in Model.orgs)
-                {
-                    <option value="@item.Id">@item.Name</option>
-                }
-            </select> <br />
-            Adress: <input type="text" name="Address" value="My Street 123" /> <br />
-            Phone Number: <input type="text" name="PhoneNum" value="01234567" />
-            <br /><br />
-            <input type="submit" value="Registrera" />
-            <br /><br />
+        <form method="post">
+            @Html.LabelFor(m => m.member.FName, "Förnamn: ")
+            @Html.EditorFor(m => m.member.FName) <br />
+            @Html.LabelFor(m => m.member.LName, "Efternamn: ")
+            @Html.EditorFor(m => m.member.LName) <br />
+            @Html.LabelFor(m => m.member.Address, "Adress: ")
+            @Html.EditorFor(m => m.member.Address) <br />
+            @Html.LabelFor(m => m.member.PhoneNum, "Telefon Nummer: ")
+            @Html.EditorFor(m => m.member.PhoneNum) <br />
+            @Html.LabelFor(m => m.member.OrganisationID, "Organisation: ")
+            @Html.DropDownListFor(m => m.member.OrganisationID, new SelectList(Model.orgs, "Id", "Name")) <br />
+            <br />
+            <button type="submit">Registrera</button>
         </form>
     </div>
 </div>

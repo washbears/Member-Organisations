@@ -1,4 +1,4 @@
-﻿
+﻿@model Member_Organisations.ViewModels.IndexViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_BootstrapLayout.cshtml";
@@ -14,3 +14,17 @@
 
 
 
+<div>
+    <ul>
+        @foreach (var item in Model.members)
+        {
+            <li>@item.FName</li>
+        }
+    </ul>
+    <ul>
+        @foreach (var item in Model.orgs)
+        {
+            <li>@item.Name</li>
+        }
+    </ul>
+</div>
