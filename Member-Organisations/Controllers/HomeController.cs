@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Member_Organisations.Models;
+using Member_Organisations.ViewModels;
 
 namespace Member_Organisations.Controllers
 {
@@ -20,39 +20,31 @@ namespace Member_Organisations.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            IndexViewModel model = new IndexViewModel(db.Organisations.ToList(), db.Members.ToList());
+            return View(model);
         }
 
         // GET: Register Member
         public ActionResult RegisterMember()
         {
-            RegisterMember RegisterMemberModel = new RegisterMember(db.Organisations.ToList());
+            RegisterMemberViewModel model = new RegisterMemberViewModel(db.Organisations.ToList());
 
-            return View(RegisterMemberModel);
+            return View(model);
         }
-
         [HttpPost]
-        public ActionResult RegisterMember(List<Organisation> orgs)
+        public ActionResult RegisterMember(RegisterMemberViewModel model)
         {
             if (ModelState.IsValid)
             {
-
-                // Add new member
-                // NOTE: Upon clicking 'Registrera' the code does NOT take information from the form
-                db.Members.Add(new Member() {
-                    FName = "Lina",
-                    LName = "Hanner",
-                    Address = "Gatan",
-                    PhoneNum = "000",
-                    OrganisationID = 1
-                    });
-
-                // Save changes and return to page
+                // Add member
+                Member member = model.member;
+                db.Members.Add(member);
                 db.SaveChanges();
+
                 return RedirectToAction("RegisterMember");
             }
 
-            return View(orgs);
+            return RedirectToAction("RegisterMember");
         }
 
         // GET: Register Organisation
