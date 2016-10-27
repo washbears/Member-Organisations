@@ -6,14 +6,17 @@
 
 <h1>Register Organisation</h1>
 <form name="registerForm" method="post">
+    <!--Textbox to add organisation name-->
     Organisation: <input type="text" name="OrganisationName" value="Din organisation">
     <br /><br />
+    <!--Button to add organisation to Database (Not functioning yet)-->
     <input type="submit" onclick="validateForm('registerForm')" value="Registrera" />
 </form>
 <br />
 <br />
 <br />
 <div>
+    <!--Adding database organisations in a list-->
     <ul>
         @foreach (var item in Model)
         {

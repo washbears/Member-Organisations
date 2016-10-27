@@ -7,21 +7,24 @@
 <h1>Register member</h1>
 <div id="register" class="wrapper">
     <div class="content">
+        <!--Registrate member and all required attributes(?)-->
         <form name="registerForm" method="post">
-            Förnamn: <input type="text" name="FirstName" value="John"/> <br />
+            Förnamn: <input type="text" name="FirstName" value="John" /> <br />
             Efternamn: <input type="text" name="LastName" value="Doe" /> <br />
+            <!--Adding member to chosen Organisation-->
             Organisation:
-                <select name="Organisation">
-                    <option value="none">Choose an organisation</option>
-                    @foreach (var item in Model.orgs)
-                    {
-                        <option value="@item.Id">@item.Name</option>
-                    }
-                </select> <br />
+            <select name="Organisation">
+                <option value="none">Choose an organisation</option>
+                @foreach (var item in Model.orgs)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select> <br />
             Adress: <input type="text" name="Address" value="My Street 123" /> <br />
             Phone Number: <input type="text" name="PhoneNum" value="01234567" />
             <br /><br />
             <input type="submit" value="Registrera" />
+            <br /><br />
         </form>
     </div>
 </div>
