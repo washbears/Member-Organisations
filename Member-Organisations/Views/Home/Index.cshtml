@@ -15,13 +15,15 @@
         <ul>
             @foreach (var item in Model.members)
             {
-                <li>@item.FName</li>
+                <li><strong>Name:</strong> @item.FName @item.LName <strong>| Address:</strong> @item.Address <strong>| Phone Number:</strong> @item.PhoneNum</li>
+                <br />
             }
         </ul>
         <ul>
             @foreach (var item in Model.orgs)
             {
                 <li>@item.Name</li>
+                <br />
             }
         </ul>
     </div>

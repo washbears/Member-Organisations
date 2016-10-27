@@ -30,6 +30,7 @@ namespace Member_Organisations.Controllers
             RegisterMemberViewModel model = new RegisterMemberViewModel(db.Organisations.ToList());
 
             return View(model);
+
         }
         [HttpPost]
         public ActionResult RegisterMember(RegisterMemberViewModel model)
