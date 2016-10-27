@@ -15,7 +15,7 @@
         <ul>
             @foreach (var item in Model.members)
             {
-                <li><strong>Name:</strong> @item.FName @item.LName <strong>| Address:</strong> @item.Address <strong>| Phone Number:</strong> @item.PhoneNum</li>
+                <li><strong>Name:</strong> @item.FName @item.LName <strong>| Address:</strong> @item.Address <strong>| Phone Number:</strong> @item.PhoneNum <strong>| Organisation: </strong> @Model.orgs.Find(m => m.Id == item.OrganisationID).Name</li>
                 <br />
             }
         </ul>
