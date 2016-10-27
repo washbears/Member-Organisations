@@ -17,12 +17,12 @@
 
         <div class="tab-content">
             <div id="menu1" class="tab-pane fade in active">
-                <h3>Members</h3>
+                <h2>Members</h2>
                 <div>
                     <ul style="list-style: none; padding: 0;">
                         @foreach (var item in Model.members)
                         {
-                            <li>@item.FName</li>
+                            <li>@item.FName @item.LName</li>
                         }
                     </ul>
                 </div>
