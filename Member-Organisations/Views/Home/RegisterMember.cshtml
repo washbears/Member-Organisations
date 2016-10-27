@@ -4,22 +4,40 @@
     Page.Title = "Register Member";
 }
 
-<h1>Register member</h1>
+
 <div id="register" class="wrapper">
-    <div class="content">
+    <div class="container">
+        
+        <h1>Register member</h1>
+
         <form method="post">
-            @Html.LabelFor(m => m.member.FName, "Förnamn: ")
-            @Html.EditorFor(m => m.member.FName) <br />
-            @Html.LabelFor(m => m.member.LName, "Efternamn: ")
-            @Html.EditorFor(m => m.member.LName) <br />
-            @Html.LabelFor(m => m.member.Address, "Adress: ")
-            @Html.EditorFor(m => m.member.Address) <br />
-            @Html.LabelFor(m => m.member.PhoneNum, "Telefon Nummer: ")
-            @Html.EditorFor(m => m.member.PhoneNum) <br />
-            @Html.LabelFor(m => m.member.OrganisationID, "Organisation: ")
-            @Html.DropDownListFor(m => m.member.OrganisationID, new SelectList(Model.orgs, "Id", "Name")) <br />
+            <div class="form-group">
+                @Html.LabelFor(m => m.member.FName, "Förnamn: ")
+                @Html.EditorFor(m => m.member.FName, new { htmlAttributes = new { @class = "form-control" } }) <br />
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(m => m.member.LName, "Efternamn: ")
+                @Html.EditorFor(m => m.member.LName, new { htmlAttributes = new { @class = "form-control" } }) <br />
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(m => m.member.Address, "Adress: ")
+                @Html.EditorFor(m => m.member.Address, new { htmlAttributes = new { @class = "form-control" } }) <br />
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(m => m.member.PhoneNum, "Telefon Nummer: ")
+                @Html.EditorFor(m => m.member.PhoneNum, new { htmlAttributes = new { @class = "form-control" } }) <br />
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(m => m.member.OrganisationID, "Organisation: ")
+                @Html.DropDownListFor(m => m.member.OrganisationID, new SelectList(Model.orgs, "Id", "Name"), new { htmlAttributes = new { @class = "form-control" } }) <br />
+            </div>
+            
             <br />
-            <button type="submit">Registrera</button>
+            <button type="submit" class="btn btn-default">Registrera</button>
         </form>
     </div>
 </div>
