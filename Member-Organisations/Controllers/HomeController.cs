@@ -39,6 +39,8 @@ namespace Member_Organisations.Controllers
                 // Add member
                 Member member = model.member;
                 db.Members.Add(member);
+
+                // Save changes and return to page
                 db.SaveChanges();
 
                 return RedirectToAction("RegisterMember");
@@ -50,28 +52,26 @@ namespace Member_Organisations.Controllers
         // GET: Register Organisation
         public ActionResult RegisterOrganisation()
         {
-            return View(new MODatabaseEntities().Organisations.ToList());
+            RegisterOrganisationViewModel model = new RegisterOrganisationViewModel(db.Organisations.ToList());
+
+            return View(model);
         }
         [HttpPost]
-        public ActionResult RegisterOrganisation(List<Organisation> orgs)
+        public ActionResult RegisterOrganisation(RegisterOrganisationViewModel model)
         {
 
             if (ModelState.IsValid)
             {
-
                 // Add new organisation
-                // NOTE: Upon clicking 'Registrera' the code does NOT take information from the form
-                db.Organisations.Add(new Organisation()
-                {
-                    Name = "TestOrganisation"
-                });
-
+                Organisation org = model.org;
+                db.Organisations.Add(org);
+                
                 // Save changes and return to page
                 db.SaveChanges();
                 return RedirectToAction("RegisterOrganisation");
             }
 
-            return View(orgs);
+            return RedirectToAction("RegisterOrganisation");
         }
 
     }

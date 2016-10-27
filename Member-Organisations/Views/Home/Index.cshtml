@@ -10,21 +10,22 @@
     <p>
         Content will be here.
     </p>
+
+    <div>
+        <ul>
+            @foreach (var item in Model.members)
+            {
+                <li>@item.FName</li>
+            }
+        </ul>
+        <ul>
+            @foreach (var item in Model.orgs)
+            {
+                <li>@item.Name</li>
+            }
+        </ul>
+    </div>
 </div>
 
 
 
-<div>
-    <ul>
-        @foreach (var item in Model.members)
-        {
-            <li>@item.FName</li>
-        }
-    </ul>
-    <ul>
-        @foreach (var item in Model.orgs)
-        {
-            <li>@item.Name</li>
-        }
-    </ul>
-</div>
